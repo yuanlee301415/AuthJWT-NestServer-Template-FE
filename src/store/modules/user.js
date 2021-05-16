@@ -45,16 +45,15 @@ const user = {
     GetUserInfo({ commit }) {
       return new Promise((resolve, reject) => {
         getUserInfo().then(response => {
-          if (response.data !== 0) { // 由于mockjs 不支持自定义状态码只能这样hack
+          if (response.code !== 0) {
             return reject('error')
           }
 
           const data = response.data
           commit('SET_USERNAME', data.username)
-          commit('SET_AVATAR', data.avatar)
-          commit('SET_INTRODUCTION', data.introduction)
           resolve(response)
         }).catch(error => {
+          console.error('GetUserInfo>error:', error)
           reject(error)
         })
       })

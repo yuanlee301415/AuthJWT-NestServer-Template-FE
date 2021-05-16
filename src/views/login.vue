@@ -33,7 +33,9 @@
     methods: {
       handleLogin() {
         this.$store.dispatch('LoginByUsername', { username: this.username, password: this.password }).then(() => {
-          this.$router.push({ name: 'Home' })
+          this.$store.dispatch('GetUserInfo').then(() => {
+            this.$router.push({ name: 'Home' })
+          })
         })
       }
     }
