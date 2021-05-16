@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style: none;
+}
+body {
+    font-family: Avenir, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.nav-bar {
+    width: 200px;
+    padding: 0 20px;
+    height: 100%;
+    position: fixed;
+    overflow: auto;
+    border-right: 1px solid #999;
+}
+.nav-bar dl {
+    padding:5px 10px;
+}
+.nav-bar dd {
+    padding:10px 0 0 20px;
+}
+.content {
+    padding:20px 20px 20px 250px;
+}
+
+
