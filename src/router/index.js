@@ -35,6 +35,23 @@ const routes = [
         component: () => import('@/views/login')
       }
     ]
+  },
+
+  { // Register
+    path: '/register',
+    hidden: true,
+    component: Layout,
+    redirect: '/register',
+    children: [
+      {
+        path: '',
+        name: 'Register',
+        meta: {
+          title: 'Register'
+        },
+        component: () => import('@/views/register')
+      }
+    ]
   }
 
 ]

@@ -6,3 +6,4 @@ export  function hello() {
         method: 'get'
     })
 }
+

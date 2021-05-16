@@ -10,9 +10,21 @@ export  function loginByUsername({ username, password }) {
         }
     })
 }
+
 export  function getUserInfo() {
     return request({
         url: '/rights/authUser',
         method: 'get'
+    })
+}
+
+export  function register({ username, password }) {
+    return request({
+        url: '/rights/register',
+        method: 'post',
+        data: {
+            username,
+            password
+        }
     })
 }
