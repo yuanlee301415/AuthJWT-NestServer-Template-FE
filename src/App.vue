@@ -3,7 +3,8 @@
     <header>
       <h1>AuthJWT_NestServer_Template_FE</h1>
       <div>
-        <span>用户:<a>{{username}}</a></span>
+        <span v-if="username">用户:<router-link to="/profile">{{username}}</router-link> | <em @click="handleLogout">登出</em></span>
+        <span v-else><router-link :to="{name: 'Login'}">登录</router-link> | <router-link :to="{name: 'Register'}">注册</router-link></span>
       </div>
     </header>
     <router-view />
@@ -16,6 +17,13 @@ export default {
   computed: {
     username () {
       return this.$store.getters.username
+    }
+  },
+  methods: {
+    handleLogout() {
+      this.$store.dispatch('FedLogOut').then(() => {
+        this.$router.replace({ name: 'Login' })
+      })
     }
   }
 }
@@ -34,5 +42,10 @@ export default {
     position: absolute;
     right: 10px;
     top: 20px;
+  }
+  header em {
+    font-style: normal;
+    cursor: pointer;
+    text-decoration: underline;
   }
 </style>

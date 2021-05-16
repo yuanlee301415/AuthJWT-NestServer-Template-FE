@@ -76,6 +76,7 @@ const user = {
     // 前端 登出
     FedLogOut({ commit }) {
       return new Promise(resolve => {
+        commit('SET_USERNAME', '')
         commit('SET_TOKEN', '')
         removeToken()
         resolve()

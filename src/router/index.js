@@ -6,12 +6,12 @@ Vue.use(Router)
 const routes = [
   { // Home
     path: '/',
-    name: 'Home',
     component: Layout,
     redirect: '/',
     children: [
       {
         path: '',
+        name: 'Home',
         meta: {
           title: 'Home'
         },
@@ -22,12 +22,13 @@ const routes = [
 
   { // Login
     path: '/login',
-    name: 'Login',
+    hidden: true,
     component: Layout,
     redirect: '/login',
     children: [
       {
         path: '',
+        name: 'Login',
         meta: {
           title: 'Login'
         },

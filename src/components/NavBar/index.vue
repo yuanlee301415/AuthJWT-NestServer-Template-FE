@@ -26,14 +26,15 @@
     computed: {
       items() {
         const items = []
-        this.routes.filter(item => {
-          // console.log('item:', item)
+        this.routes.forEach(item => {
+          if (item.hidden) return
+          console.log('item:', item)
           const subs = item.children && item.children.filter(sub => !sub.hidden && sub.name)
           // console.log('subs:', subs)
           items.push({
             name: item.name,
             title: item.meta && item.meta.title || item.name,
-            children: subs.length && subs.map(sub => ({ name: sub.name, title: sub.meta && sub.meta.title || sub.name })) || null
+            children: subs.length && subs.map(sub => sub.hidden ? null : ({ name: sub.name, title: sub.meta && sub.meta.title || sub.name })).filter(sub => !!sub) || null
           })
         })
         // console.log('items:', items)
