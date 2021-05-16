@@ -52,6 +52,49 @@ const routes = [
         component: () => import('@/views/register')
       }
     ]
+  },
+
+  { // User
+    path: '/user',
+    hidden: true,
+    component: Layout,
+    redirect: '/profile',
+    children: [
+      {
+        path: 'profile',
+        name: 'Profile',
+        meta: {
+          title: 'Profile'
+        },
+        component: () => import('@/views/user')
+      }
+    ]
+  },
+
+  { // Post
+    path: '/post',
+    component: Layout,
+    redirect: '/post/list',
+    children: [
+      {
+        path: 'list',
+        name: 'PostList',
+        meta: {
+          title: 'PostList'
+        },
+        component: () => import('@/views/post')
+      },
+
+      {
+        path: ':postId',
+        hidden: true,
+        name: 'PostDetail',
+        meta: {
+          title: 'PostDetail'
+        },
+        component: () => import('@/views/post/detail')
+      }
+    ]
   }
 
 ]
