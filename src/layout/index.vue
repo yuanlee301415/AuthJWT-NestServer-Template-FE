@@ -6,9 +6,7 @@
             <hr>
             <br>
             <transition name="fade-transform" mode="out-in">
-                <template>
-                    <router-view :key="key" />
-                </template>
+              <router-view :key="key" />
             </transition>
         </div>
     </div>
@@ -23,11 +21,10 @@
     },
     computed: {
       key() {
-        return this.$route.path
+        return this.$route.fullPath
       },
       title() {
-        // console.log('$route:', this.$route)
-        return this.$route.meta.title
+        return this.$route.meta && this.$route.meta.title
       }
     }
   }

@@ -18,6 +18,22 @@ const routes = [
         component: () => import('@/views/home')
       }
     ]
+  },
+
+  { // Login
+    path: '/login',
+    name: 'Login',
+    component: Layout,
+    redirect: '/login',
+    children: [
+      {
+        path: '',
+        meta: {
+          title: 'Login'
+        },
+        component: () => import('@/views/login')
+      }
+    ]
   }
 
 ]
