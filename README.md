@@ -1,4 +1,4 @@
-# fe
+# AuthJWT_NestServer_Template_FE
 
 ## Project setup
 ```
