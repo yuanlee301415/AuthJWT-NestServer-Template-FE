@@ -6,7 +6,8 @@ export  function loginByUsername({ username, password }) {
         method: 'post',
         data: {
             username,
-            password
+            password,
+            type: 'web'
         }
     })
 }

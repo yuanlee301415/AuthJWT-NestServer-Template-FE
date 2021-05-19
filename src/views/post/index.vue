@@ -29,6 +29,8 @@ export default {
   methods: {
     getPosts() {
       getPosts().then(res => {
+        if (res.code !== 0) return
+
         this.posts = res.data
       })
     }

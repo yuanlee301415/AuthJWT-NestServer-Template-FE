@@ -22,6 +22,8 @@ export default {
   methods: {
     hello() {
       hello().then(res => {
+        if (res.code !== 0) return
+
         this.msg = res.data
       })
     }

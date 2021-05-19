@@ -30,10 +30,11 @@ const user = {
     // 用户名登录
     LoginByUsername({ commit }, { username, password }) {
       return new Promise((resolve, reject) => {
-        loginByUsername({ username, password }).then(response => {
-          const data = response.data
-          commit('SET_TOKEN', data.access_token)
-          setToken(response.data.access_token)
+        loginByUsername({ username, password }).then(res => {
+          if (res.code !== 0 || !res.data) return reject(res)
+
+          commit('SET_TOKEN', res.data.access_token)
+          setToken(res.data.access_token)
           resolve()
         }).catch(error => {
           reject(error)
@@ -44,14 +45,12 @@ const user = {
     // 获取用户信息
     GetUserInfo({ commit }) {
       return new Promise((resolve, reject) => {
-        getUserInfo().then(response => {
-          if (response.code !== 0) {
-            return reject('error')
-          }
+        getUserInfo().then(res => {
+          if (res.code !== 0) return reject('error')
 
-          const data = response.data
+          const data = res.data
           commit('SET_USERNAME', data.username)
-          resolve(response)
+          resolve(res)
         }).catch(error => {
           console.error('GetUserInfo>error:', error)
           reject(error)

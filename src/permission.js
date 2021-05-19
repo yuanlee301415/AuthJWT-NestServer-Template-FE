@@ -10,7 +10,7 @@ router.beforeEach((to, from, next) => {
         if (store.getters.username) return next()
 
         store.dispatch('GetUserInfo').then(() => {
-            next({...to, replace: true })
+            next()
         })
     } else {
         // Todo: 当前页面是否需要登录
