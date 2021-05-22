@@ -21,8 +21,9 @@ const user = {
       state.token = token
     },
 
-    SET_USERNAME: (state, username) => {
-      state.username = username
+    SET_USER_INFO: (state, data) => {
+      state.userid = data._id
+      state.username = data.username
     }
   },
 
@@ -49,7 +50,7 @@ const user = {
           if (res.code !== 0) return reject('error')
 
           const data = res.data
-          commit('SET_USERNAME', data.username)
+          commit('SET_USER_INFO', data)
           resolve(res)
         }).catch(error => {
           console.error('GetUserInfo>error:', error)
@@ -75,7 +76,7 @@ const user = {
     // 前端 登出
     FedLogOut({ commit }) {
       return new Promise(resolve => {
-        commit('SET_USERNAME', '')
+        commit('SET_USER_INFO', {})
         commit('SET_TOKEN', '')
         removeToken()
         resolve()

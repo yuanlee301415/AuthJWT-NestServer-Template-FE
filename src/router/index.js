@@ -58,10 +58,9 @@ const routes = [
     path: '/user',
     hidden: true,
     component: Layout,
-    redirect: '/profile',
     children: [
       {
-        path: 'profile',
+        path: 'profile/:userid',
         name: 'Profile',
         meta: {
           title: 'Profile'
@@ -86,7 +85,7 @@ const routes = [
       },
 
       {
-        path: ':postId',
+        path: ':id',
         hidden: true,
         name: 'PostDetail',
         meta: {

@@ -5,7 +5,7 @@ import { getToken } from "@/utils/auth";
 router.beforeEach((to, from, next) => {
     console.log('to.name:', to.name)
     const token = getToken()
-    console.warn('router.beforeEach>token:', token)
+    // console.warn('router.beforeEach>token:', token)
     if (token) {
         if (store.getters.username) return next()
 

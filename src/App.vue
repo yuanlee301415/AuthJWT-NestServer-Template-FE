@@ -3,7 +3,7 @@
     <header>
       <h1>AuthJWT_NestServer_Template_FE</h1>
       <div>
-        <span v-if="username">用户:<router-link :to="{ name: 'Profile'}">{{username}}</router-link> | <em @click="handleLogout">登出</em></span>
+        <span v-if="username">用户:<router-link :to="{ name: 'Profile', params: { userid: $store.getters.userid }}">{{username}}</router-link> | <em @click="handleLogout">登出</em></span>
         <span v-else><router-link :to="{name: 'Login'}">登录</router-link> | <router-link :to="{name: 'Register'}">注册</router-link></span>
       </div>
     </header>

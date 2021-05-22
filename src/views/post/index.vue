@@ -1,7 +1,7 @@
 <template>
   <div class="postList">
     <dl v-for="post of posts" :key="post._id">
-      <dt><router-link :to="{name: 'PostDetail', params: { postId: post._id }}">{{ post.title }}</router-link></dt>
+      <dt><router-link :to="{name: 'PostDetail', params: { id: post._id }}">{{ post.title }}</router-link></dt>
       <dd>简介：{{ post.desc }}</dd>
       <dd>关键词：<span v-for="keyword of post.keywords" :key="keyword">{{ keyword }}</span>&nbsp;&nbsp;</dd>
       <dd>
