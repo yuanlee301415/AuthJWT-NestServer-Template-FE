@@ -1,5 +1,5 @@
 'use strict'
-const port = process.env.port || process.env.npm_config_port || 9527 // dev port
+const port = process.env.port || process.env.npm_config_port || 10210 // dev port
 
 console.log('ENV:', process.env.ENV)
 console.log('NODE_ENV:', process.env.NODE_ENV)
